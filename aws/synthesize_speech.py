@@ -9,22 +9,22 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
-aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
+def synthesize_speech(text):
+    aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
+    aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
 
-
-Session = boto3.Session(
-        aws_access_key_id = aws_access_key_id,
-        aws_secret_access_key = aws_secret_access_key,
-        region_name = "us-east-1"
+    session = boto3.Session(
+        aws_access_key_id=aws_access_key_id,
+        aws_secret_access_key=aws_secret_access_key,
+        region_name="us-east-1"
     )
 
-def synthesize_speech(text):
-    Polly = Session.client("polly")
-    response = Polly.synthesize_speech(
+    polly = session.client("polly")
+    response = polly.synthesize_speech(
         Text=text,
         OutputFormat="mp3",
-        VoiceId="Joanna")
+        VoiceId="Joanna"
+    )
     if "AudioStream" in response:
         with closing(response["AudioStream"]) as stream:
             output = os.path.join(gettempdir(), "temp_audio.mp3")

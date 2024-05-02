@@ -5,10 +5,10 @@ import streamlit as st
 from PIL import Image
 
 mn=Image.open("AI.webp")
-st.set_page_config(page_title = "AI Interviewer", layout = "centered",page_icon=mn)
+st.set_page_config(page_title = "I - Sensei", layout = "centered",page_icon=mn)
 if True:
-    home_title = "AI Interviewer"
-    home_introduction = "Welcome to AI Interviewer, empowering your interview preparation with generative AI."
+    home_title = "I - Sensei"
+    home_introduction = "Welcome to I - Sensei, empowering your interview preparation with generative AI."
     with st.sidebar:
         st.markdown('## AI Interviewer')
         st.markdown('## Team : I-Sensei.ai')

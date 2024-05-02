@@ -1,6 +1,6 @@
 langchain-openai
 PyPDF2
-openai==0.28
+openai
 wave
 streamlit==1.25.0
 tiktoken

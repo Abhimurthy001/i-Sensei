@@ -1,3 +1,4 @@
+langchain
 langchain-openai
 PyPDF2
 openai

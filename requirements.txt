@@ -1,4 +1,4 @@
-langchain
+langchain-openai
 PyPDF2
 openai==0.28
 wave
